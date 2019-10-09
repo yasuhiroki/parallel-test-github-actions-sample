@@ -14,6 +14,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Install rs command
+      run: sudo apt-get install rs
     - name: Build and test
       run: |
         gem install bundler
