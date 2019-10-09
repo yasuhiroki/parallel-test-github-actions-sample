@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        node: [1, 2, 3]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build and test with Rake
+    - name: Build and test
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
