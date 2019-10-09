@@ -1,3 +1,3 @@
-# ruby-heavy-test
+# parallel test github actions sample
 
-Sample repository for GitHub Actions with heavy testing
+Sample repository for GitHub Actions with parallel testing
