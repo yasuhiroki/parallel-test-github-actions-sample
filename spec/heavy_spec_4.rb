@@ -1,6 +1,6 @@
 RSpec.describe :sleep do
   it do
-    sleep 60
+    sleep 10 * 4
     expect(true).to eq true
   end
 end
