@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe :sleep do
   it do
     sleep 10 * 6
