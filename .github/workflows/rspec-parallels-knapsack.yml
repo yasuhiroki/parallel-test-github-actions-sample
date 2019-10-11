@@ -1,4 +1,4 @@
-name: Ruby
+name: Rspec knapsack
 
 on: [push]
 
@@ -21,6 +21,7 @@ jobs:
         CI_NODE_TOTAL: 3
         CI_NODE_INDEX: ${{ matrix.node }}
       run: |
+        env
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec knapsack rspec spec/**
