@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [1, 2, 3]
+        node: [0, 1, 2]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
