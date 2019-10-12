@@ -16,8 +16,15 @@ jobs:
         ruby-version: 2.6.x
     - name: Install rs command
       run: sudo apt-get install rs
-    - name: Build and test
+    - name: Install
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        ls -1 spec/* | xargs -n3 | rs -T | sed -n "s/^/bundle exec rspec /; ${{ matrix.node }}p" | bash
+    - name: Test
+      run: |
+        ls -1 spec/* | xargs -n3 | rs -T | sed -n "s/^/bundle exec rspec --format RspecHtmlReporter /; ${{ matrix.node }}p" | bash
+    - name: Upload
+      uses: actions/upload-artifact@master
+      with:
+        name: reports
+        path: reports

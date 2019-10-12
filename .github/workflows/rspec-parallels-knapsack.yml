@@ -14,14 +14,18 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Install rs command
-      run: sudo apt-get install rs
-    - name: Build and test
+    - name: Install
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+    - name: Test
       env:
         CI_NODE_TOTAL: 3
         CI_NODE_INDEX: ${{ matrix.node }}
       run: |
-        env
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec knapsack rspec spec/**
+        bundle exec knapsack rspec --format RspecHtmlReporter spec/**
+    - name: Upload
+      uses: actions/upload-artifact@master
+      with:
+        name: reports
+        path: reports
