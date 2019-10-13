@@ -32,3 +32,6 @@ jobs:
       uses: actions/download-artifact@master
       with:
         name: reports
+    - name: Print
+      run: |
+        ls reports
