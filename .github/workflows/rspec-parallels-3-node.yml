@@ -28,3 +28,7 @@ jobs:
       with:
         name: reports
         path: reports
+    - name: Download
+      uses: actions/download-artifact@master
+      with:
+        name: reports
