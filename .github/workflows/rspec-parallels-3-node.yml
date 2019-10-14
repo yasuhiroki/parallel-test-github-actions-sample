@@ -34,4 +34,15 @@ jobs:
         name: reports
     - name: Print
       run: |
-        ls reports
+        ls -R reports
+  result:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Download
+      uses: actions/download-artifact@master
+      with:
+        name: reports
+    - name: Print
+      run: |
+        ls -R reports
