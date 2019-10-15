@@ -75,3 +75,12 @@ jobs:
       run: |
         ruby spec/coverage_merge.rb
         cat coverage/coverage.txt
+        echo ::set-env name=COVERAGE_REPORT::$(cat coverage/coverage.txt | tr '\n' '@')
+    - uses: actions/github-script@master
+      with:
+        debug: true
+        github-token: ${{github.token}}
+        script: |
+          github.repos.createCommitComment({owner: 'yasuhiroki', repo: 'parallel-test-github-actions-sample', commit_sha: context.sha, body: process.env.COVERAGE_REPORT.replace(/@/g, "<br>") })
+
+
