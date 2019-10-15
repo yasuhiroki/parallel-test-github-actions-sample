@@ -39,6 +39,8 @@ GEM
       docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
+    simplecov-erb (0.1.1)
+      simplecov
     simplecov-html (0.10.2)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -53,6 +55,7 @@ DEPENDENCIES
   rspec
   rspec_html_reporter
   simplecov
+  simplecov-erb
 
 BUNDLED WITH
    1.17.2
