@@ -35,6 +35,10 @@ class Sleep
     sleep 9
   end
 
+  def sleep_999
+    sleep 999
+  end
+
   private
 
     def sleep(n)
