@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe :sleep_4 do
   it do
-    sleep 10 * 4
+    Sleep.new.sleep_4
     expect(true).to eq true
   end
 end
